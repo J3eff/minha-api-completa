@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DzTf6w/I4uzzBuKgIfSxp1sFQNLti9gxuGt2queGLM+rxbhR/b6z91S3QX3nMQ6obT5kY/UP+uZIxjElddGEYA==",
+  "success": true,
+  "projectFilePath": "D:\\Dev\\Desenvolvedor.io\\REST com ASP.NET Core WebAPI\\MinhaAPICompleta\\src\\DevIO.Business\\DevIO.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jeffe\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
+    "C:\\Users\\jeffe\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
