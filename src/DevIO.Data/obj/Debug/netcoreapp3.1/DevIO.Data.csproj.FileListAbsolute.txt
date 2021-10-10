@@ -10,3 +10,6 @@ D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\obj\Debug\netcoreapp3.1\DevIO.Data.csproj.CopyComplete
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\obj\Debug\netcoreapp3.1\DevIO.Data.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\obj\Debug\netcoreapp3.1\DevIO.Data.pdb
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\bin\Debug\netcoreapp3.1\DevIO.Data.runtimeconfig.json
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\bin\Debug\netcoreapp3.1\DevIO.Data.runtimeconfig.dev.json
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Data\obj\Debug\netcoreapp3.1\DevIO.Data.genruntimeconfig.cache
