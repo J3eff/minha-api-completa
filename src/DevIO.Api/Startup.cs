@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using DevIO.Api.Configuration;
 using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DevIO.Api
 {
@@ -28,6 +29,10 @@ namespace DevIO.Api
             services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
+
+            services.Configure<ApiBehaviorOptions>(options => {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
             services.ResolveDependencies();
         }
