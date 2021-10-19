@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using DevIO.Business.Models;
+using System.IO;
 
 namespace DevIO.Api.Controllers
 {
@@ -49,12 +50,19 @@ namespace DevIO.Api.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
+            var imagemNome = Guid.NewGuid() + "_" + produtoViewModel.Imagem;
+
+            if(!UploadArquivo(produtoViewModel.ImagemUpload, imagemNome))
+            {
+                return CustomResponse();
+            }
+
+            produtoViewModel.Imagem = imagemNome;
+            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));            
 
             return CustomResponse(produtoViewModel);
         }
-
-
+        
 
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
@@ -72,6 +80,28 @@ namespace DevIO.Api.Controllers
         private async Task<ProdutoViewModel> ObterProduto(Guid id)
         {
             return _mapper.Map<ProdutoViewModel>(await _produtoRepository.ObterProdutoFornecedor(id));
+        }
+        private bool UploadArquivo(string arquivo, string imgNome)
+        {
+            var imageDataByteArray = Convert.FromBase64String(arquivo); //Vem em formato sring e é convertido para base64 - coleção de bytes
+
+            if (string.IsNullOrEmpty(arquivo))
+            {
+                NotificarErro("Forneça uma imagem para este produto!");
+                return false;
+            }
+
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgNome);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                NotificarErro("Já existe um arquivo com este nome!");
+                return false;
+            }
+
+            System.IO.File.WriteAllBytes(filePath, imageDataByteArray);
+
+            return true;
         }
     }
 }
