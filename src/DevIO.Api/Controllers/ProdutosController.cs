@@ -57,6 +57,7 @@ namespace DevIO.Api.Controllers
                 return CustomResponse();
             }
 
+
             produtoViewModel.Imagem = imagemNome;
             await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));            
 
