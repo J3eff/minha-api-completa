@@ -62,8 +62,7 @@ namespace DevIO.Api.Controllers
             await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));            
 
             return CustomResponse(produtoViewModel);
-        }
-        
+        }        
 
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
@@ -76,6 +75,7 @@ namespace DevIO.Api.Controllers
 
             return CustomResponse(produto);
         }
+
 
 
         private async Task<ProdutoViewModel> ObterProduto(Guid id)
