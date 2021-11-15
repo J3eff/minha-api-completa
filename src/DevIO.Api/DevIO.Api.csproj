@@ -5,11 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\imagens\004ba09c-e087-4330-991c-82f8ef5501e2_" />
+    <Compile Remove="wwwroot\imagens\**" />
+    <Content Remove="wwwroot\imagens\**" />
+    <EmbeddedResource Remove="wwwroot\imagens\**" />
+    <None Remove="wwwroot\imagens\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\imagens\" />
+    <Folder Include="wwwroot\app\demo-webapi\src\assets\" />
   </ItemGroup>
 
 
