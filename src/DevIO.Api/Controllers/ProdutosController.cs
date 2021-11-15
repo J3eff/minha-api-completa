@@ -17,9 +17,9 @@ namespace DevIO.Api.Controllers
         private readonly IProdutoService _produtoService;
         private readonly IMapper _mapper;
 
-        public ProdutosController(INotificador notificador, 
-                                  IMapper mapper, 
-                                  IProdutoService produtoService, 
+        public ProdutosController(INotificador notificador,
+                                  IMapper mapper,
+                                  IProdutoService produtoService,
                                   IProdutoRepository produtoRepository) : base(notificador)
         {
             _mapper = mapper;
@@ -52,17 +52,17 @@ namespace DevIO.Api.Controllers
 
             var imagemNome = Guid.NewGuid() + "_" + produtoViewModel.Imagem;
 
-            if(!UploadArquivo(produtoViewModel.ImagemUpload, imagemNome))
+            if (!UploadArquivo(produtoViewModel.ImagemUpload, imagemNome))
             {
                 return CustomResponse();
             }
 
 
             produtoViewModel.Imagem = imagemNome;
-            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));            
+            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
 
             return CustomResponse(produtoViewModel);
-        }        
+        }
 
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
@@ -82,15 +82,16 @@ namespace DevIO.Api.Controllers
         {
             return _mapper.Map<ProdutoViewModel>(await _produtoRepository.ObterProdutoFornecedor(id));
         }
+
         private bool UploadArquivo(string arquivo, string imgNome)
         {
-            var imageDataByteArray = Convert.FromBase64String(arquivo); //Vem em formato sring e é convertido para base64 - coleção de bytes
-
             if (string.IsNullOrEmpty(arquivo))
             {
                 NotificarErro("Forneça uma imagem para este produto!");
                 return false;
             }
+
+            var imageDataByteArray = Convert.FromBase64String(arquivo); //Vem em formato sring e é convertido para base64 - coleção de bytes
 
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgNome);
 
