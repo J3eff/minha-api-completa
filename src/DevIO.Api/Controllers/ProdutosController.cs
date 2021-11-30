@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System;
 using DevIO.Business.Models;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace DevIO.Api.Controllers
 {
@@ -64,6 +65,25 @@ namespace DevIO.Api.Controllers
             return CustomResponse(produtoViewModel);
         }
 
+        [HttpPost("Adicionar")]
+        public async Task<ActionResult<ProdutoViewModel>> AdicionarAlternativo(ProdutoImagemViewModel produtoViewModel)
+        {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            var imgPrefixo = Guid.NewGuid() + "_";
+
+            if (!await UploadArquivoAlternativo(produtoViewModel.ImagemUpload, imgPrefixo))
+            {
+                return CustomResponse(ModelState);
+            }
+
+            produtoViewModel.Imagem = imgPrefixo + produtoViewModel.ImagemUpload.FileName;
+            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
+
+            return CustomResponse(produtoViewModel);
+        }
+
+
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
         {
@@ -105,5 +125,30 @@ namespace DevIO.Api.Controllers
 
             return true;
         }
+
+        private async Task<bool> UploadArquivoAlternativo(IFormFile arquivo, string imgPrefixo)
+        {
+            if(arquivo == null || arquivo.Length == 0)
+            {
+                NotificarErro("Forneça uma imagem para este produto!"); 
+                return false;
+            }
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgPrefixo + arquivo.FileName);
+
+            if (System.IO.File.Exists(path))
+            {
+                NotificarErro("Já esxite um arquivo com este nome!");
+                return false;
+            }
+
+            using (var stram = new FileStream(path, FileMode.Create))
+            {
+                await arquivo.CopyToAsync(stram);
+            }
+
+            return true;
+        }
+
     }
 }
