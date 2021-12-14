@@ -59,3 +59,7 @@ D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

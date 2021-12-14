@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using DevIO.Api.ViewModels;
-using DevIO.Business.Intefaces;
-using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
+using DevIO.Api.ViewModels;
+using DevIO.Business.Intefaces;
+using DevIO.Api.Extensions;
 using DevIO.Business.Models;
-using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
 namespace DevIO.Api.Controllers
@@ -66,23 +67,32 @@ namespace DevIO.Api.Controllers
         }
 
         [HttpPost("Adicionar")]
-        public async Task<ActionResult<ProdutoViewModel>> AdicionarAlternativo(ProdutoImagemViewModel produtoViewModel)
+        public async Task<ActionResult<ProdutoViewModel>> AdicionarAlternativo(
+            // Binder personalizado para envio de IFormFile e ViewModel dentro de um FormData compatível com .NET Core 3.1 ou superior (system.text.json)
+            [ModelBinder(BinderType = typeof(ProdutoModelBinder))]
+            ProdutoImagemViewModel produtoViewModel)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             var imgPrefixo = Guid.NewGuid() + "_";
-
             if (!await UploadArquivoAlternativo(produtoViewModel.ImagemUpload, imgPrefixo))
             {
                 return CustomResponse(ModelState);
             }
 
             produtoViewModel.Imagem = imgPrefixo + produtoViewModel.ImagemUpload.FileName;
-            await _produtoRepository.Adicionar(_mapper.Map<Produto>(produtoViewModel));
+            await _produtoService.Adicionar(_mapper.Map<Produto>(produtoViewModel));
 
             return CustomResponse(produtoViewModel);
         }
 
+
+        [RequestSizeLimit(400000000)]
+        [HttpPost("imagem")]
+        public async Task<ActionResult> AdicionarImagem(IFormFile file)
+        {
+            return Ok(file);
+        }
 
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
