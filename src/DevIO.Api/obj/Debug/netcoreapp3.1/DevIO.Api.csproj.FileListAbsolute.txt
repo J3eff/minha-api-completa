@@ -63,3 +63,15 @@ D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\DevIO.Api.StaticWebAssets.xml
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.MvcApplicationPartsAssemblyInfo.cs

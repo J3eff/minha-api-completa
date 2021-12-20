@@ -19,11 +19,8 @@ namespace DevIO.Api
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<MeuDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+        {            
+            services.AddIdentityConfiguration(Configuration);
 
             services.AddAutoMapper(typeof(Startup));
 
