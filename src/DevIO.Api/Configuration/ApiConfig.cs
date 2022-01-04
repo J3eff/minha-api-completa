@@ -36,7 +36,7 @@ namespace DevIO.Api.Configuration
 
         public static IApplicationBuilder UseMvcConfiguration(this IApplicationBuilder app)
         {
-           
+                 
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -46,11 +46,11 @@ namespace DevIO.Api.Configuration
 
             app.UseStaticFiles();
 
-            //app.UseCors(x => x
-            //    .AllowAnyMethod()
-            //    .AllowAnyHeader()
-            //    .SetIsOriginAllowed(origin => true)
-            //    .AllowCredentials());
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials());
 
             app.UseEndpoints(endpoints =>
             {

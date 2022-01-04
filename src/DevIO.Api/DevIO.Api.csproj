@@ -16,13 +16,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">    
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
   </ItemGroup>
 
@@ -32,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="wwwroot\app\demo-webapi\src\assets\" />
   </ItemGroup>
 
