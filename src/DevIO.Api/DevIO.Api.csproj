@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\app\**" />
     <Compile Remove="wwwroot\imagens\**" />
+    <Content Remove="wwwroot\app\**" />
     <Content Remove="wwwroot\imagens\**" />
+    <EmbeddedResource Remove="wwwroot\app\**" />
     <EmbeddedResource Remove="wwwroot\imagens\**" />
+    <None Remove="wwwroot\app\**" />
     <None Remove="wwwroot\imagens\**" />
   </ItemGroup>
 
@@ -36,7 +40,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="wwwroot\app\demo-webapi\src\assets\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 
