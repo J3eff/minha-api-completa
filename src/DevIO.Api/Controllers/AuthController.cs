@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DevIO.Api.Controllers
 {
-    [Route("api/conta")]
+    [Route("api")]
     public class AuthController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -21,20 +21,53 @@ namespace DevIO.Api.Controllers
             _signInManager = signInManager;
         }
 
+        [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var user = new IdentityUser 
+            var user = new IdentityUser
             {
                 UserName = registerUser.Email,
                 Email = registerUser.Email,
                 EmailConfirmed = true
             };
 
+            var result = await _userManager.CreateAsync(user, registerUser.Password);
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, false); //Segundo parametro -> se ele é persistente - Significa que se vou lembrar dele ou se vai guarda algum tipo de informação para proximo login
+                return CustomResponse(registerUser);
+            }
+            foreach (var error in result.Errors)
+            {
+                NotificarErro(error.Description);
+            }
 
             return CustomResponse(registerUser);
         }
 
+
+        [HttpPost("entrar")]
+        public async Task<ActionResult> Login(LoginUserViewModel loginUser)
+        {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // lockoutOnFailure -> Se ele tentar mais de 5 vezes, com credenciais erradas ele vai travar aquele login.
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
+
+            if (result.Succeeded)
+            {
+                return CustomResponse(loginUser);
+            }
+            if (result.IsLockedOut)
+            {
+                NotificarErro("Usuário temporariamnente bloqueado por tentativas inválidas");
+                return CustomResponse(loginUser);
+            }
+
+            NotificarErro("Usuário ou Senha incorretos");
+            return CustomResponse(loginUser);
+        }
     }
 }
