@@ -1,4 +1,5 @@
 ﻿using DevIO.Api.Data;
+using DevIO.Api.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,7 @@ namespace DevIO.Api.Configuration
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>() //Porque passar o IdentityRole -> Porque podemos costumizar minha pólitica de roles e passar uma classe manipulado por mim.
                 .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<IdentityMensagensPortugues>()
                 .AddDefaultTokenProviders(); // Ele vai adicionar o recurso para poder gerar Tokens -> idenntificação por e-mail, reset de senha e etc...
 
             return services;
