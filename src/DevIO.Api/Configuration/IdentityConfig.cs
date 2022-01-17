@@ -37,7 +37,7 @@ namespace DevIO.Api.Configuration
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; //Valida o token.
             }).AddJwtBearer(x =>
             {
-                x.RequireHttpsMetadata = false; // Ele requer que a pessoa esta vindo, esta em HTTPS quando TRUE.
+                x.RequireHttpsMetadata = true; // Ele requer que a pessoa esta vindo, esta em HTTPS quando TRUE.
                 x.SaveToken = true; // Ele guarda o token quando autenticado no HttpAuthenticationProperties feita com sucesso.
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
