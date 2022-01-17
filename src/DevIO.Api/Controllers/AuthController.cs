@@ -8,8 +8,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System;
 using DevIO.Api.Extensions;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DevIO.Api.Controllers
 {
@@ -82,16 +82,17 @@ namespace DevIO.Api.Controllers
         private string GerarJwt()
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var token = tokenHandler.CreateToken(new SecurityTokenDescriptor
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);       
+            var token = tokenHandler.CreateToken(new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
             {
                 Issuer = _appSettings.Emissor,
                 Audience = _appSettings.ValidoEm,
-                Expires = DateTime.UtcNow.AddHours(_appSettings.ExpiracaoHoras),
+                Expires = System.DateTime.UtcNow.AddHours(_appSettings.ExpiracaoHoras),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             });
 
             var encodedToken = tokenHandler.WriteToken(token); //Serializa um JWT para ficar compativel com padrão da web
+
             return encodedToken;
         }
     }
