@@ -11,6 +11,7 @@ using DevIO.Api.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Linq;
 
 namespace DevIO.Api.Controllers
 {
@@ -80,7 +81,7 @@ namespace DevIO.Api.Controllers
             return CustomResponse(loginUser);
         }
 
-        private async Task<string> GerarJwt(string email)
+        private async Task<LoginResponseViewModel> GerarJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             var claims = await _userManager.GetClaimsAsync(user);
@@ -112,7 +113,20 @@ namespace DevIO.Api.Controllers
 
             var encodedToken = tokenHandler.WriteToken(token); //Serializa um JWT para ficar compativel com padrão da web
 
-            return encodedToken;
+            var response = new LoginResponseViewModel
+            {
+                AcessToken = encodedToken,
+                ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
+                UserToken = new UserTokenViewModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Claims = claims.Select(c => new ClaimsViewModel { Type = c.Type, Value = c.Value })
+                }
+
+            };
+
+            return response;
         }
 
         #region Private Methods

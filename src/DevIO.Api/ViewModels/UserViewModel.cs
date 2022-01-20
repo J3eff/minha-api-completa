@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DevIO.Api.ViewModels
 {
@@ -25,6 +26,27 @@ namespace DevIO.Api.ViewModels
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(100, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 6)]
-        public string Password { get; set; }  
+        public string Password { get; set; }
     }
+
+    public class UserTokenViewModel
+    {
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public IEnumerable<ClaimsViewModel> Claims { get; set; }
+    }
+
+    public class LoginResponseViewModel
+    {
+        public string AcessToken { get; set; }
+        public double ExpiresIn { get; set; }
+        public UserTokenViewModel UserToken { get; set; }
+    }
+
+    public class ClaimsViewModel
+    {
+        public string Value { get; set; }
+        public string Type { get; set; }
+    }
+
 }
