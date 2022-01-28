@@ -13,7 +13,7 @@ namespace DevIO.Api.Configuration
     {
         public static IServiceCollection WebApiConfig(this IServiceCollection services)
         {
-            services.AddControllers();                      
+            services.AddControllers();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -24,11 +24,11 @@ namespace DevIO.Api.Configuration
             services.AddCors(options =>
             {
                 options.AddPolicy("Development",
-                     builder =>
-                         builder
-                         .AllowAnyOrigin()
-                         .AllowAnyMethod()
-                         .AllowAnyHeader());
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
 
             return services;
@@ -36,7 +36,10 @@ namespace DevIO.Api.Configuration
 
         public static IApplicationBuilder UseMvcConfiguration(this IApplicationBuilder app)
         {
-                 
+
+            app.UseCors("Development"); // Usar apenas nas demos => Configuração Ideal: Production
+            app.UseHsts();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -45,13 +48,7 @@ namespace DevIO.Api.Configuration
             app.UseAuthorization();
 
             app.UseStaticFiles();
-
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true)
-                .AllowCredentials());
-
+                        
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

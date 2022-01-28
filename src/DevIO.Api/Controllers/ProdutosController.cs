@@ -9,9 +9,11 @@ using DevIO.Api.Extensions;
 using DevIO.Business.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevIO.Api.Controllers
 {
+    [Authorize]
     [Route("api/produtos")]
     public class ProdutosController : MainController
     {

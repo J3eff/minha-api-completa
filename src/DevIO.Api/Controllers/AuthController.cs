@@ -115,7 +115,7 @@ namespace DevIO.Api.Controllers
 
             var response = new LoginResponseViewModel
             {
-                AcessToken = encodedToken,
+                AccessToken = encodedToken,
                 ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
                 UserToken = new UserTokenViewModel
                 {

@@ -38,7 +38,7 @@ namespace DevIO.Api.ViewModels
 
     public class LoginResponseViewModel
     {
-        public string AcessToken { get; set; }
+        public string AccessToken { get; set; }
         public double ExpiresIn { get; set; }
         public UserTokenViewModel UserToken { get; set; }
     }
