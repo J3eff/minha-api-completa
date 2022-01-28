@@ -57,8 +57,7 @@ export class CadastroComponent implements OnInit {
       produtoForm.ativo = this.produtoForm.get('ativo').value
       produtoForm.valor = parseFloat(this.produtoForm.get('valor').value)
 
-      //this.produtoHandle(produtoForm)
-      this.produtoHandleAlternativo(produtoForm)
+      this.produtoHandle(produtoForm)
         .subscribe(
           result => { this.onSaveComplete(result) },
           fail => { this.onError(fail) }
