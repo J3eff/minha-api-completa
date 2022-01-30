@@ -24,7 +24,8 @@ namespace DevIO.Api.Controllers
         public ProdutosController(INotificador notificador,
                                   IMapper mapper,
                                   IProdutoService produtoService,
-                                  IProdutoRepository produtoRepository) : base(notificador)
+                                  IProdutoRepository produtoRepository,
+                                  IUser user) : base(notificador, user)
         {
             _mapper = mapper;
             _produtoService = produtoService;

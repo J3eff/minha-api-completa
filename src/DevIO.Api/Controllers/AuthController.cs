@@ -25,7 +25,8 @@ namespace DevIO.Api.Controllers
         public AuthController(INotificador notificador,
                               UserManager<IdentityUser> userManager,
                               SignInManager<IdentityUser> signInManager,
-                              IOptions<AppSettings> appSettings) : base(notificador)
+                              IOptions<AppSettings> appSettings,
+                              IUser user) : base(notificador, user)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -107,7 +108,7 @@ namespace DevIO.Api.Controllers
                 Issuer = _appSettings.Emissor,
                 Audience = _appSettings.ValidoEm,
                 Subject = identityClaims,
-                Expires = System.DateTime.UtcNow.AddHours(_appSettings.ExpiracaoHoras),
+                Expires = DateTime.UtcNow.AddHours(_appSettings.ExpiracaoHoras),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             });
 
