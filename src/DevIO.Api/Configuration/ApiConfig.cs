@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Microsoft.Net.Http.Headers;
 
 namespace DevIO.Api.Configuration
 {
@@ -28,7 +28,17 @@ namespace DevIO.Api.Configuration
                         builder
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
+                        //.AllowCredentials()
                         .AllowAnyHeader());
+
+                options.AddPolicy("Production",
+                    builder =>
+                        builder
+                            .WithMethods("GET")
+                            .WithOrigins("http://desenvolvedor.io")
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                            //.WithHeaders(HeaderNames.ContentType, "x-custom-header") é possivel restringir via headers
+                            .AllowAnyHeader());
             });
 
             return services;
@@ -36,17 +46,14 @@ namespace DevIO.Api.Configuration
 
         public static IApplicationBuilder UseMvcConfiguration(this IApplicationBuilder app)
         {
-            app.UseHttpsRedirection();
+            app.UseHttpsRedirection();            
 
-            app.UseCors("Development"); // Usar apenas nas demos => Configuração Ideal: Production
-           
             app.UseRouting();
-
-            app.UseAuthentication();
+                        
             app.UseAuthorization();
 
             app.UseStaticFiles();
-                        
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

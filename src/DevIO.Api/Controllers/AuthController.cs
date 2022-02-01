@@ -1,21 +1,22 @@
-﻿using DevIO.Business.Intefaces;
+﻿using System;
+using System.Text;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using DevIO.Api.ViewModels;
-using Microsoft.AspNetCore.Identity;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using System;
-using DevIO.Api.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
-using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Cors;
+using DevIO.Business.Intefaces;
+using DevIO.Api.ViewModels;
+using DevIO.Api.Extensions;
 
 namespace DevIO.Api.Controllers
 {
-    [Route("api")]
+    [Route("api")]    
     public class AuthController : MainController
     {        
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -33,6 +34,7 @@ namespace DevIO.Api.Controllers
             _appSettings = appSettings.Value;
         }
 
+        //[EnableCors("Development")] A politica global não é sobreescrita com base no atributo
         [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
