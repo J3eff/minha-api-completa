@@ -1,11 +1,6 @@
-﻿using DevIO.Api.Extensions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Net.Http.Headers;
 
 namespace DevIO.Api.Configuration
 {
@@ -14,6 +9,19 @@ namespace DevIO.Api.Configuration
         public static IServiceCollection WebApiConfig(this IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true; // Ele assume a versão Default quando não temos uma especificada.
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.ReportApiVersions = true; //Ele vai passar no header do response que api esta OK ou esta Absoleta.
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true; // Ele pega um valor indicado dentro da API Version onde ele pode ser substituido nas rotas.
+            });
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -46,10 +54,10 @@ namespace DevIO.Api.Configuration
 
         public static IApplicationBuilder UseMvcConfiguration(this IApplicationBuilder app)
         {
-            app.UseHttpsRedirection();            
+            app.UseHttpsRedirection();
 
             app.UseRouting();
-                        
+
             app.UseAuthorization();
 
             app.UseStaticFiles();
