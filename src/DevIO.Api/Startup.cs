@@ -8,6 +8,7 @@ using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace DevIO.Api
 {
@@ -33,12 +34,12 @@ namespace DevIO.Api
 
             services.WebApiConfig();
 
-            //AddSwaggerConfig
+            services.AddSwaggerConfig();
 
             services.ResolveDependencies();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -54,7 +55,7 @@ namespace DevIO.Api
             app.UseAuthentication();
             app.UseMvcConfiguration();
 
-            x
+            app.UseSwaggerConfig(provider);
         }
     }
 }
