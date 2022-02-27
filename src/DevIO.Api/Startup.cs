@@ -2,12 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using DevIO.Api.Configuration;
 using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using Swashbuckle.AspNetCore;
-using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace DevIO.Api
@@ -32,7 +29,7 @@ namespace DevIO.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.WebApiConfig();
+            services.AddApiConfig();
 
             services.AddSwaggerConfig();
 
@@ -40,20 +37,8 @@ namespace DevIO.Api
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseCors("Development");
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseCors("Production");
-                app.UseHsts();
-            }
-
-            app.UseAuthentication();
-            app.UseMvcConfiguration();
+        {                        
+            app.UseApiConfig(env);
 
             app.UseSwaggerConfig(provider);
         }

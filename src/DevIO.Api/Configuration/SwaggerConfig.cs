@@ -24,12 +24,6 @@ namespace DevIO.Api.Configuration
         public static IApplicationBuilder UseSwaggerConfig(this IApplicationBuilder app, IApiVersionDescriptionProvider provider)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-
-
             app.UseSwaggerUI(
                 options =>
                 {
@@ -43,10 +37,10 @@ namespace DevIO.Api.Configuration
         }
     }
 
-    public class ConfigureSwaggerIoptions : IConfigureOptions<SwaggerGenOptions>
+    public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
         readonly IApiVersionDescriptionProvider provider;
-        public ConfigureSwaggerIoptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
+        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
         public void Configure(SwaggerGenOptions options)
         {
             foreach (var description in provider.ApiVersionDescriptions)
@@ -62,10 +56,9 @@ namespace DevIO.Api.Configuration
             {
                 Title = "API - desenvolvedor.io",
                 Version = description.ApiVersion.ToString(),
-                Description = "Esta API faz parte do curso REST com ASP.NET Core WebAPI.",
+                Description = "Esta API faz parte do curso REST com ASP.NET Core WebAPI.",                               
                 Contact = new OpenApiContact() { Name = "Jefferson Brandão", Email = "jeffersonvideo125@gmail.com" },
-                TermsOfService = "https://opensource.org/licenses/MIT",
-                License = new OpenApiLicense() { Name = "MIT", Url = "https://opensource.org/licenses/MIT" }
+                License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
             };
 
             if (description.IsDeprecated)
