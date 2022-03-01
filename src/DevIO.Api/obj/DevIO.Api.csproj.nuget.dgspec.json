@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "Elmah.IO.Extensions.Logging": {
+              "target": "Package",
+              "version": "[4.1.28, )"
+            },
             "Elmah.Io.AspNetCore": {
               "target": "Package",
               "version": "[4.1.37, )"

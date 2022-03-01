@@ -56,6 +56,19 @@
           "lib/netstandard2.0/Elmah.Io.Client.dll": {}
         }
       },
+      "Elmah.Io.Extensions.Logging/4.1.28": {
+        "type": "package",
+        "dependencies": {
+          "Elmah.Io.Client": "[4.1.36, 5.0.0)",
+          "Microsoft.Extensions.Logging": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Elmah.Io.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Elmah.Io.Extensions.Logging.dll": {}
+        }
+      },
       "FluentValidation/8.6.2": {
         "type": "package",
         "dependencies": {
@@ -2888,6 +2901,21 @@
         "lib/netstandard1.4/Elmah.Io.Client.xml",
         "lib/netstandard2.0/Elmah.Io.Client.dll",
         "lib/netstandard2.0/Elmah.Io.Client.xml"
+      ]
+    },
+    "Elmah.Io.Extensions.Logging/4.1.28": {
+      "sha512": "1GK2F7IaLyigtGBQ/hrDLlnDYrjXM0NRV9lCLTaB9FgULMal0C70yWFy9NrTs4htzTHJqtg90CEeyIwDb9hQeg==",
+      "type": "package",
+      "path": "elmah.io.extensions.logging/4.1.28",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "elmah.io.extensions.logging.4.1.28.nupkg.sha512",
+        "elmah.io.extensions.logging.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Elmah.Io.Extensions.Logging.dll",
+        "lib/netstandard2.0/Elmah.Io.Extensions.Logging.xml"
       ]
     },
     "FluentValidation/8.6.2": {
@@ -8900,6 +8928,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
       "DevIO.Business >= 1.0.0",
       "DevIO.Data >= 1.0.0",
+      "Elmah.IO.Extensions.Logging >= 4.1.28",
       "Elmah.Io.AspNetCore >= 4.1.37",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.4",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
@@ -8975,6 +9004,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[8.1.1, )"
+          },
+          "Elmah.IO.Extensions.Logging": {
+            "target": "Package",
+            "version": "[4.1.28, )"
           },
           "Elmah.Io.AspNetCore": {
             "target": "Package",
