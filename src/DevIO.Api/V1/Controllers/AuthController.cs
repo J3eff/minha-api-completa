@@ -13,6 +13,7 @@ using DevIO.Business.Intefaces;
 using DevIO.Api.ViewModels;
 using DevIO.Api.Extensions;
 using DevIO.Api.Controllers;
+using Microsoft.Extensions.Logging;
 
 namespace DevIO.Api.V1.Controllers
 {
@@ -23,16 +24,18 @@ namespace DevIO.Api.V1.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
+        private readonly ILogger _logger;
 
         public AuthController(INotificador notificador,
                               UserManager<IdentityUser> userManager,
                               SignInManager<IdentityUser> signInManager,
                               IOptions<AppSettings> appSettings,
-                              IUser user) : base(notificador, user)
+                              IUser user, ILogger<AuthController> logger) : base(notificador, user)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _appSettings = appSettings.Value;
+            _logger = logger;
         }
 
         //[EnableCors("Development")] A politica global não é sobreescrita com base no atributo
@@ -73,6 +76,7 @@ namespace DevIO.Api.V1.Controllers
 
             if (result.Succeeded)
             {
+                _logger.LogInformation("Usuario " + loginUser.Email + " logado com sucesso");
                 return CustomResponse(await GerarJwt(loginUser.Email));
             }
             if (result.IsLockedOut)
