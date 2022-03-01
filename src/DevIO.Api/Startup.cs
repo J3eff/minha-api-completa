@@ -33,6 +33,8 @@ namespace DevIO.Api
 
             services.AddSwaggerConfig();
 
+            services.AddLogginConfiguration();
+
             services.ResolveDependencies();
         }
 
@@ -41,6 +43,8 @@ namespace DevIO.Api
             app.UseApiConfig(env);
 
             app.UseSwaggerConfig(provider);
+
+            app.UseLoggingConfiguration();
         }
     }
 }
