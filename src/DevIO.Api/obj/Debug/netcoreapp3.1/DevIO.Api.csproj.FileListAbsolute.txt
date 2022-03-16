@@ -94,3 +94,4 @@ D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Rest.ClientRuntime.Azure.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Elmah.Io.AspNetCore.dll
 D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Elmah.Io.Client.dll
+D:\Dev\Desenvolvedor.io\REST com ASP.NET Core WebAPI\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Elmah.Io.Extensions.Logging.dll
