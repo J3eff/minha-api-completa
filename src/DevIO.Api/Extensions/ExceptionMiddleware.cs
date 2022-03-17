@@ -23,15 +23,14 @@ namespace DevIO.Api.Extensions
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(httpContext, ex);
+                HandleExceptionAsync(httpContext, ex);
             }
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+        private static void HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            exception.Ship(context);
+            //exception.Ship(context);
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            return Task.CompletedTask;
         }
     }
 }
