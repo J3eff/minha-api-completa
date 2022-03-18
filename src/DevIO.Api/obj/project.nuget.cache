@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uVbYvMlk4Sdy76gr9FJDzH9JtepoScuVCfffiLRVyH7JS2U9PLI2u9WXjSfAr37QdzpQCgLhpbdDcZbSQVn5xA==",
+  "dgSpecHash": "Q6zLkI7P4+CSYwYi5JyhKDjDhEnNLHVUoz5uEmfhUHwwUV9XzX0ohzE52gR1zd8Dd/WtPcvy9AAdOM62+Hdpxg==",
   "success": true,
   "projectFilePath": "D:\\Dev\\Desenvolvedor.io\\REST com ASP.NET Core WebAPI\\MinhaAPICompleta\\src\\DevIO.Api\\DevIO.Api.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\jeffe\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\elmah.io.aspnetcore\\4.1.37\\elmah.io.aspnetcore.4.1.37.nupkg.sha512",
+    "C:\\Users\\jeffe\\.nuget\\packages\\elmah.io.aspnetcore.healthchecks\\4.1.37\\elmah.io.aspnetcore.healthchecks.4.1.37.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\elmah.io.client\\4.1.36\\elmah.io.client.4.1.36.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\elmah.io.extensions.logging\\4.1.28\\elmah.io.extensions.logging.4.1.28.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",

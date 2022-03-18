@@ -121,6 +121,19 @@
           "lib/netstandard2.0/Elmah.Io.AspNetCore.dll": {}
         }
       },
+      "Elmah.Io.AspNetCore.HealthChecks/4.1.37": {
+        "type": "package",
+        "dependencies": {
+          "Elmah.Io.Client": "[4.1.34-pre, 5.0.0)",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Elmah.Io.AspNetCore.HealthChecks.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Elmah.Io.AspNetCore.HealthChecks.dll": {}
+        }
+      },
       "Elmah.Io.Client/4.1.36": {
         "type": "package",
         "dependencies": {
@@ -3252,6 +3265,20 @@
         "icon.png",
         "lib/netstandard2.0/Elmah.Io.AspNetCore.dll",
         "lib/netstandard2.0/Elmah.Io.AspNetCore.xml"
+      ]
+    },
+    "Elmah.Io.AspNetCore.HealthChecks/4.1.37": {
+      "sha512": "+xqERG1RBPb0J/nJjyRd9avhm9yo833DwQg6tJOHCYwCtm7NoLn1ycP3eqhE7geBWmw0KVXuiwjWizgKs5Ikig==",
+      "type": "package",
+      "path": "elmah.io.aspnetcore.healthchecks/4.1.37",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "elmah.io.aspnetcore.healthchecks.4.1.37.nupkg.sha512",
+        "elmah.io.aspnetcore.healthchecks.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Elmah.Io.AspNetCore.HealthChecks.dll",
+        "lib/netstandard2.0/Elmah.Io.AspNetCore.HealthChecks.xml"
       ]
     },
     "Elmah.Io.Client/4.1.36": {
@@ -9567,6 +9594,7 @@
       "DevIO.Data >= 1.0.0",
       "Elmah.IO.Extensions.Logging >= 4.1.28",
       "Elmah.Io.AspNetCore >= 4.1.37",
+      "Elmah.Io.AspNetCore.HealthChecks >= 4.1.37",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.4",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.4",
@@ -9662,6 +9690,10 @@
             "version": "[4.1.28, )"
           },
           "Elmah.Io.AspNetCore": {
+            "target": "Package",
+            "version": "[4.1.37, )"
+          },
+          "Elmah.Io.AspNetCore.HealthChecks": {
             "target": "Package",
             "version": "[4.1.37, )"
           },
